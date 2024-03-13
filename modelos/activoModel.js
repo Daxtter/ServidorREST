@@ -111,4 +111,9 @@ let findById = function(id){
     return activo.find((a)=>a.idActivo==id);
 }
 
+let deleteId = function(id){
+    activo.filter((a)=> a!=id);
+}
+
+
 export default{findAll, findById};
