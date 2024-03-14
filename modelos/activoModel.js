@@ -7,7 +7,7 @@ const activo =[
         Descripcion: 'Computadora muy eficaz que pueda',
         Ubicacion: 12301,
         Responsable : 31201,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenConputadora.jpg' 
     },
     {
         idActivo: 124502,
@@ -17,7 +17,7 @@ const activo =[
         Descripcion: 'Escritorio diseñado especificamente para el uso de computadoras por largo tiempo',
         Ubicacion: 12301,
         Responsable : 31201,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenEscritorio.jpg' 
     },
     {
         idActivo: 124503,
@@ -27,7 +27,7 @@ const activo =[
         Descripcion: 'Modem para que la conexion del laboratorio sea eficiente',
         Ubicacion: 12301,
         Responsable : 31201,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenModem.jpg' 
     },
     {
         idActivo: 124504,
@@ -37,7 +37,7 @@ const activo =[
         Descripcion: 'Es importante mantener el lugar limpio',
         Ubicacion: 12302,
         Responsable : 31202,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenBoteDeBasura.jpg' 
     },
     {
         idActivo: 124505,
@@ -47,7 +47,7 @@ const activo =[
         Descripcion: 'Un Trapeador extra absorbente',
         Ubicacion: 12302,
         Responsable : 31202,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenTrapeador.jpg' 
     },
     {
         idActivo: 12456,
@@ -57,7 +57,7 @@ const activo =[
         Descripcion: 'Cada casillero mide aproximadamente 60x60x60 cm',
         Ubicacion: 12302,
         Responsable : 31202,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenCasilleros.jpg' 
     },
     {
         idActivo: 124507,
@@ -67,7 +67,7 @@ const activo =[
         Descripcion: 'Pizarron ecologico',
         Ubicacion: 12303,
         Responsable : 31203,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenPazarron.jpg' 
     },
     {
         idActivo: 124508,
@@ -77,7 +77,7 @@ const activo =[
         Descripcion: 'Calidad de imagen 720p',
         Ubicacion: 12303,
         Responsable : 31203,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenProyector.jpg' 
     },
     {
         idActivo: 124509,
@@ -87,7 +87,7 @@ const activo =[
         Descripcion: 'Silla ergonomica',
         Ubicacion: 12304,
         Responsable : 31204,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenSilla.jpg' 
     },
     {
         idActivo: 124510,
@@ -97,23 +97,34 @@ const activo =[
         Descripcion: 'ventilador sencillo',
         Ubicacion: 12304,
         Responsable : 31204,
-        imagenAsociadaAlActivo: 'imagen.jpg' 
+        imagenAsociadaAlActivo: 'imagenVentilador.jpg' 
     }
 
 ];
 
 
-let findAll = function(){
+const findAll = function(){
 
     return activo;
 }
-let findById = function(id){
+const findById = function(id){
     return activo.find((a)=>a.idActivo==id);
 }
 
-let deleteId = function(id){
-    activo.filter((a)=> a!=id);
+const deleteid = function(id){
+    let index = getIndex(id)
+    activo.splice(index,1);
 }
 
+const post = function(objetoJson){
+    activo.push(objetoJson);
+}
+const getIndex = function(id){
+   return activo.findIndex((x) => x.idActivo==id);
+}
+const put = function(id, objetoJson){
+    let index = getIndex(id)
+    activo[index] = objetoJson;
+}
 
-export default{findAll, findById};
+export default{findAll, findById,deleteid,post,put};
