@@ -22,30 +22,37 @@ import express from 'express'
 //const express = require('express')
 const app = express();
 //const activo= require('./Controladores/activoControllador.js')
-import activo from './Controladores/activoController.js'
-import ubicacion from './Controladores/ubicacionController.js'
-import responsable from './Controladores/responsableController.js'
-
+import activo from './Route/activos.js'
+import ubicacion from './Route/ubicacion.js'
+import responsable from './Route/responsable.js'
 app.use(express.json());
 //Activo
+/*
 app.get('/activo',activo.findAll);
 app.get('/activo/:id',activo.findById);
 app.post('/activo/',activo.post)
 app.put('/activo/:id',activo.put)
 app.delete('/activo/:id',activo.deleteId)
+*/
+app.use("/activo",activo);
 //ubicacion
+app.use("/ubicacion",ubicacion);
+/*
 app.get('/ubicacion',ubicacion.findAll);
 app.get('/ubicacion/:id',ubicacion.findById);
 app.post('/ubicacion/',ubicacion.post)
 app.put('/ubicacion/:id',ubicacion.put)
 app.delete('/ubicacion/:id',ubicacion.deleteId)
+*/
 //responsable
+app.use("/responsable",responsable);
+/*
 app.get('/responsable',responsable.findAll);
 app.get('/responsable/:id',responsable.findById);
 app.post('/responsable/',responsable.post)
 app.put('/responsable/:id',responsable.put)
 app.delete('/responsable/:id',responsable.deleteId)
-
+*/
 
 
 

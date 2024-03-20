@@ -120,6 +120,7 @@ const post = function(objetoJson){
     activo.push(objetoJson);
 }
 const getIndex = function(id){
+    console.log(id)
    return activo.findIndex((x) => x.idActivo==id);
 }
 const put = function(id, objetoJson){

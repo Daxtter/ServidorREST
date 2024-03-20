@@ -1,6 +1,7 @@
 
 import activo from "../modelos/activoModel.js"
 
+const respuestaErronea = "Error al encontrar su recurso"
 
 const findAll = async function(req, res) {
     let valor = await activo.findAll() 
@@ -9,7 +10,12 @@ const findAll = async function(req, res) {
 
 const findById = async function(req, res){
     let valor = await activo.findById(req.params.id)
-    await res.json(valor)
+    console.log(valor)
+    if(valor==null){
+        res.json(respuestaErronea)
+    }
+     else{res.json(valor);} 
+
 };
 const deleteId = async function(req,res){
     await activo.deleteid(req.params.id);
