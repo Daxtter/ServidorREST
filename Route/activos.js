@@ -1,7 +1,7 @@
 import express from 'express'
 const router = express.Router();
 import activo from '../Controladores/activoController.js'
-import activoM from '../modelos/activoModel.js'
+//Se imlementa lo que se utilizará en cada método
 router.get('/',activo.findAll);
 router.get('/:id',activo.findById);
 router.post('/',activo.post);
